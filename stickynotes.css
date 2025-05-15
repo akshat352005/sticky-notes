@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(135deg, #f8f9fa 0%, #d4e0e2 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  user-select: none;
+}
+
+header {
+  width: 100%;
+  padding: 1rem 2rem;
+  background-color: #ffffffcc;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: center;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+button#addNoteBtn {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  background-color: #007bff;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  box-shadow: 0 4px 6px rgba(0,123,255,0.3);
+  transition: background-color 0.3s ease;
+  user-select: none;
+}
+
+button#addNoteBtn:hover {
+  background-color: #0056b3;
+}
+
+main#notesContainer {
+  position: relative;
+  flex-grow: 1;
+  width: 100vw;
+  height: calc(100vh - 64px);
+  overflow: auto;
+}
+
+.note {
+  position: absolute;
+  width: 200px;
+  min-height: 180px;
+  background: #fff475;
+  box-shadow:
+    5px 5px 10px rgba(0,0,0,0.15),
+    inset 0 2px 5px rgba(255,255,255,0.8);
+  border-radius: 12px;
+  padding: 15px 15px 40px;
+  box-sizing: border-box;
+  cursor: grab;
+  user-select: text;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: box-shadow 0.2s ease;
+}
+
+.note:active {
+  cursor: grabbing;
+  box-shadow:
+    10px 10px 15px rgba(0,0,0,0.25),
+    inset 0 2px 5px rgba(255,255,255,0.9);
+  z-index: 1000;
+}
+
+.note[contenteditable="true"] {
+  outline: 2px solid #2196F3;
+}
+
+.note .content {
+  flex-grow: 1;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  font-size: 1rem;
+  color: #333;
+  cursor: text;
+}
+
+.note .delete-btn {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: #ff4c4c;
+  border: none;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 24px;
+  cursor: pointer;
+  user-select: none;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  transition: background-color 0.2s ease;
+}
+
+.note .delete-btn:hover {
+  background: #e00000;
+}
